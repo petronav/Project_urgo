@@ -110,16 +110,18 @@ whole_line_list = []
 
 # Declare the asset and liabilities keywords for checking and safe appending in lists
 liability_keywords = ["Opening B", "OPENING B", "Drawings", "Income", "Secured L", "Loan", "LOAN", \
-						"Current L", "CURRENT L", "Payable", "Sundry Creditors", "Bank OD", "BANK OD", \
-						"Advance Received", "Unsecured L", "UNSECURED L", "VAT", "Audit Fee"]
+			"Current L", "CURRENT L", "Payable", "Sundry Creditors", "Bank OD", "BANK OD", \
+			"Advance Received", "Unsecured L", "UNSECURED L", "VAT", "Audit Fee"]
 
 asset_keywords = ["Dep", "Stock in Trade", "Advance", "Sundry Debtors", "Current A", "Bank Bal","BANK B", \
-					"Cash & Bank Balance", "Fixed A", "FIXED A", "Investment" , "INVESTMENT", "Cash in Hand", "TDS", "A/c no",\
-					"Invertor", "Car", "Tool", "Computer", "Furniture", "Mobile", "Motor", "Battery"]
+			"Cash & Bank Balance", "Fixed A", "FIXED A", "Investment" , "INVESTMENT", "Cash in Hand",\
+		  	"TDS", "A/c no", "Invertor", "Car", "Tool", "Computer", "Furniture", "Mobile", \
+		  	"Motor", "Battery"]
 
 # Declare two lists with liability and asset headings
 liability_heads = ["Opening B", "OPENING B", "Secured Loan", "SECURED LOAN","Current L", "CURRENT L"]
-asset_heads = ["Fixed A", "FIXED A", "Investment", "INVESTMENT", "Current A","CURRENT A", "Bank A", "BANK A", "Cash & B", "CASH & B", "Loan "]
+asset_heads = ["Fixed A", "FIXED A", "Investment", "INVESTMENT", "Current A","CURRENT A", "Bank A", \
+	       "BANK A", "Cash & B", "CASH & B", "Loan "]
 
 # Define a function which would return True, position index if there is any liability keyword in a string and False, None otherwise
 def check_liab_kword_pres(samp_str):
@@ -271,10 +273,10 @@ for i in content[table_head_line_no+1:]:
 		# There are six possibilities :
 		# poss 1 : liability_string    liability_value    asset_string
 		# poss 2 : liability_string    liability_value
-		# poss 3 : 										  asset_string    asset_value
-		# poss 4 : liability_string						  asset_string    asset_value
-		# poss 5 : 					   liability_value    asset_string
-		# poss 6 : 					   liability_value
+		# poss 3 : 					  asset_string    asset_value
+		# poss 4 : liability_string			  asset_string    asset_value
+		# poss 5 : 		       liability_value    asset_string
+		# poss 6 : 		       liability_value
 
 		# Matching cases :
 		# case 1 : string_before_val       numeric_val    string_after_val   	 >> poss 1
@@ -345,7 +347,7 @@ for i in content[table_head_line_no+1:]:
 		# poss 2 : liability_string    liability_value    liability_value    
 		# poss 3 : liability_string    liability_value                       asset_string    asset_value
 		# poss 4 :                     liability_value                       asset_string    asset_value
-		# poss 5 : 															 asset_string    asset_value    asset_value
+		# poss 5 : 							     asset_string    asset_value    asset_value
 
 		# Matching cases :
 		# case 1 : first_string    first_val    NO_middle_string    second_val    last_string 				>> poss 1 
